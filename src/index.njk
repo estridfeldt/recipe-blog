@@ -1,8 +1,16 @@
 ---
 layout: base-layout.njk
+pagination:
+  data: collections.allPosts
+  size: 3
+  reverse: true
+  alias: posts
 ---
-<h1>Hello</h1>
-
-<p>
-The index page
-</p>
+{% for post in posts %}
+  <article>
+    <h1>
+      <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+    </h1>
+    {{ post.date }}
+  </article>
+{% endfor %}
