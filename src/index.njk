@@ -14,3 +14,8 @@ pagination:
     {{ post.date }}
   </article>
 {% endfor %}
+
+<div>
+    <a href="{% if not posts.first %}{{ pagination.href.previous | url }}{% else %}javascript:void(0){% endif %}">Previous</a>
+    <a href="{% if not posts.last %}{{ pagination.href.next | url }}{% else %}javascript:void(0){% endif %}">Next</a>
+</div>
